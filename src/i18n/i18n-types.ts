@@ -14,61 +14,78 @@ export type Translation = RootTranslation
 export type Translations = RootTranslation
 
 type RootTranslation = {
-	/**
-	 * app started
-	 */
-	startup: string
-	greeting: {
+	messages: {
 		/**
-		 * Hello {name}!
-		 * @param {string} name
+		 * Decentralchain + Svelte
 		 */
-		message: RequiredParams<'name'>
+		title: string
 		/**
-		 * Your name:
+		 * Demo project for Decentralchain Signer authentication
 		 */
-		label: string
+		description: string
 	}
-	/**
-	 * Today is {date|weekday}
-	 * @param {Date} date
-	 */
-	today: RequiredParams<'date|weekday'>
-	counter: {
+	login: {
 		/**
-		 * Clicks:
+		 * Log in
 		 */
-		clicks: string
+		login: string
+		/**
+		 * Logging in...
+		 */
+		logging: string
+		/**
+		 * Logged  in as {address}
+		 * @param {string} address
+		 */
+		logged: RequiredParams<'address'>
+	}
+	footer: {
+		/**
+		 * Powered by
+		 */
+		poweredby: string
+		/**
+		 * Decentralchain
+		 */
+		decentralchain: string
 	}
 }
 
 export type TranslationFunctions = {
-	/**
-	 * app started
-	 */
-	startup: () => LocalizedString
-	greeting: {
+	messages: {
 		/**
-		 * Hello {name}!
+		 * Decentralchain + Svelte
 		 */
-		message: (arg: { name: string }) => LocalizedString
+		title: () => LocalizedString
 		/**
-		 * Your name:
+		 * Demo project for Decentralchain Signer authentication
 		 */
-		label: () => LocalizedString
+		description: () => LocalizedString
 	}
-	/**
-	 * Today is {date|weekday}
-	 */
-	today: (arg: { date: Date }) => LocalizedString
-	counter: {
+	login: {
 		/**
-		 * Clicks:
+		 * Log in
 		 */
-		clicks: () => LocalizedString
+		login: () => LocalizedString
+		/**
+		 * Logging in...
+		 */
+		logging: () => LocalizedString
+		/**
+		 * Logged  in as {address}
+		 */
+		logged: (arg: { address: string }) => LocalizedString
+	}
+	footer: {
+		/**
+		 * Powered by
+		 */
+		poweredby: () => LocalizedString
+		/**
+		 * Decentralchain
+		 */
+		decentralchain: () => LocalizedString
 	}
 }
 
-export type Formatters = {
-	weekday: (value: Date) => unknown
-}
+export type Formatters = {}
